@@ -24,7 +24,7 @@ can hack it, or use it if necessary :-)
 %description -l pl
 Cdcat jest graficznym (opartym o QT) wieloplatformowym (Linux/Windows)
 programem kataloguj±cym, który skanuje wybrane dyski i zapamiêtuje
-system plików, w³±czaj±c w to znaczniki mp3, i zapisuje to w ma³ym
+system plików (w³±czaj±c w to znaczniki mp3) i zapisuje to w ma³ym
 pliku. Baza danych jest w gzipowanym pliku XML, wiêc mo¿esz j±
 zmieniaæ, albo u¿ywaæ w miarê potrzeby. 
 
