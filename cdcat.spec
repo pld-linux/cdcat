@@ -5,7 +5,7 @@ Version:	0.93
 Release:	0.1
 License:	GPL
 Group:		Applications
-Source0:	http://dl.sourceforge.net/cdcat/cdcat-0.93.tar.bz2
+Source0:	http://dl.sourceforge.net/cdcat/%{name}-%{version}.tar.bz2
 # Source0-md5:	5d27a6f7cf8f887dadbf2cb5caa16e24
 Source1:	cdcat.desktop
 URL:		http://cdcat.sourceforge.net/
@@ -25,26 +25,28 @@ can hack it, or use it if necessary :-)
 Cdcat jest graficznym (opartym o QT) wieloplatformowym (Linux/Windows)
 programem kataloguj±cym, który skanuje wybrane dyski i zapamiêtuje
 system plików (w³±czaj±c w to znaczniki mp3) i zapisuje to w ma³ym
-pliku. Baza danych jest w gzipowanym pliku XML, wiêc mo¿esz j±
-zmieniaæ, albo u¿ywaæ w miarê potrzeby. 
+pliku. Baza danych jest w gzipowanym pliku XML, wiêc mo¿na j±
+zmieniaæ, albo u¿ywaæ w miarê potrzeby.
 
 %prep
-%setup -n CdCat-%{version}
+%setup -q -n CdCat-%{version}
 
 %build
 cd src
 export QTDIR=%{_prefix}
-export QMAKESPEC="%{_datadir}/qt/mkspecs/linux-g++/"
-qmake
+qmake \
+	QMAKE_CXX="%{__cxx}" \
+	QMAKE_LINK="%{__cxx}" \
+	QMAKE_CXXFLAGS_RELEASE="%{rpmcflags} -fno-exceptions -fno-rtti"
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_datadir}/cdcat/translations
 
 install -D src/cdcat $RPM_BUILD_ROOT%{_bindir}/cdcat
-for L in de es cz hu; do
-	install -D src/lang/cdcat_$L.qm $RPM_BUILD_ROOT%{_datadir}/cdcat/translations/cdcat_$L.qm
-done
+install src/lang/cdcat_*.qm $RPM_BUILD_ROOT%{_datadir}/cdcat/translations
 install -D %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/cdcat.desktop
 install -D cdcat.png $RPM_BUILD_ROOT%{_pixmapsdir}/cdcat.png
 
@@ -55,6 +57,11 @@ rm -fr $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Authors ChangeLog README README_CSV_IMPORT TRANSLATORS_README TODO VERSION
 %attr(755,root,root) %{_bindir}/*
+%dir %{_datadir}/cdcat
+%dir %{_datadir}/cdcat/translations
+%lang(cs) %{_datadir}/cdcat/translations/cdcat_cz.qm
+%lang(de) %{_datadir}/cdcat/translations/cdcat_de.qm
+%lang(es) %{_datadir}/cdcat/translations/cdcat_es.qm
+%lang(hu) %{_datadir}/cdcat/translations/cdcat_hu.qm
 %{_desktopdir}/*
 %{_pixmapsdir}/*
-%{_datadir}/cdcat
