@@ -2,7 +2,7 @@ Summary:	Hypher's CdCatalog
 Summary(pl):	Katalog CDków Hypera
 Name:		cdcat
 Version:	0.97
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications
 Source0:	http://cdcat.sourceforge.net/%{name}-%{version}.tar.bz2
