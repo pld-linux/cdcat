@@ -7,6 +7,6 @@ Icon=cdcat.png
 Exec=cdcat
 Terminal=false
 Type=Application
-Categories=Qt;Utility;Archiving;Database;
+Categories=Qt;Utility;
 Encoding=UTF-8
 # vi: encoding=utf-8
