@@ -1,4 +1,3 @@
-# $Revision: 1.1 $
 Summary:	Hypher's CdCatalog
 Summary(pl):	Katalog CDków Hypera
 Name:		cdcat
@@ -6,7 +5,7 @@ Version:	0.93
 Release:	0.1
 License:	GPL
 Group:		Applications
-Source0: http://dl.sourceforge.net/cdcat/cdcat-0.93.tar.bz2
+Source0:	http://dl.sourceforge.net/cdcat/cdcat-0.93.tar.bz2
 # Source0-md5: 5d27a6f7cf8f887dadbf2cb5caa16e24
 Source1:	cdcat.desktop
 URL:		http://cdcat.sourceforge.net/
@@ -18,16 +17,15 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 The cdcat is a graphical (QT based) multiplatform (Linux/Windows)
 catalog program which scan your directoryes/drives you want and
-memoryze the filesystem /including the tags of mp3's/  and store it a
+memoryze the filesystem /including the tags of mp3's/ and store it a
 small file.  The database is stored in a gzipped XML format, so you
 can hack it, or use it if necessary :-)
 
-
 %description -l pl
-Cdcat jest graficznym (opartym o QT) wieloplatformowym (Linux/Window)
-programem kataloguj±cym który skanuje dyski które chesz i zapamiêtuje
-system plików, w³±czaj±c w to znaczniki mp3j, i zapamiêtuje to w ma³ym
-pliku. Baza danych jest w formacie gzipped XML, wiêc mo¿esz j±
+Cdcat jest graficznym (opartym o QT) wieloplatformowym (Linux/Windows)
+programem kataloguj±cym, który skanuje wybrane dyski i zapamiêtuje
+system plików, w³±czaj±c w to znaczniki mp3, i zapisuje to w ma³ym
+pliku. Baza danych jest w gzipowanym pliku XML, wiêc mo¿esz j±
 zmieniaæ, albo u¿ywaæ w miarê potrzeby. 
 
 %prep
@@ -44,7 +42,7 @@ qmake
 rm -rf $RPM_BUILD_ROOT
 
 install -D src/cdcat $RPM_BUILD_ROOT%{_bindir}/cdcat
-for L in de es cz hu;do
+for L in de es cz hu; do
 	install -D src/lang/cdcat_$L.qm $RPM_BUILD_ROOT%{_datadir}/cdcat/translations/cdcat_$L.qm
 done
 install -D %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/cdcat.desktop
