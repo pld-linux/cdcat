@@ -6,7 +6,7 @@ Release:	0.1
 License:	GPL
 Group:		Applications
 Source0:	http://dl.sourceforge.net/cdcat/cdcat-0.93.tar.bz2
-# Source0-md5: 5d27a6f7cf8f887dadbf2cb5caa16e24
+# Source0-md5:	5d27a6f7cf8f887dadbf2cb5caa16e24
 Source1:	cdcat.desktop
 URL:		http://cdcat.sourceforge.net/
 BuildRequires:	expat-devel >= 1.95.2
@@ -53,8 +53,7 @@ rm -fr $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README_CSV_IMPORT Authors ChangeLog COPYING TRANSLATORS_README TODO VERSION
-
+%doc Authors ChangeLog README README_CSV_IMPORT TRANSLATORS_README TODO VERSION
 %attr(755,root,root) %{_bindir}/*
 %{_desktopdir}/*
 %{_pixmapsdir}/*
