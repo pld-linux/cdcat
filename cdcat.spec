@@ -15,14 +15,14 @@ BuildRequires:	qt-devel >= 2.0.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The cdcat is a graphical (QT based) multiplatform (Linux/Windows)
+The cdcat is a graphical (Qt based) multiplatform (Linux/Windows)
 catalog program which scan your directoryes/drives you want and
 memoryze the filesystem /including the tags of mp3's/ and store it a
 small file.  The database is stored in a gzipped XML format, so you
 can hack it, or use it if necessary :-)
 
 %description -l pl
-Cdcat jest graficznym (opartym o QT) wieloplatformowym (Linux/Windows)
+Cdcat jest graficznym (opartym o Qt) wieloplatformowym (Linux/Windows)
 programem kataloguj±cym, który skanuje wybrane dyski i zapamiêtuje
 system plików (w³±czaj±c w to znaczniki mp3) i zapisuje to w ma³ym
 pliku. Baza danych jest w gzipowanym pliku XML, wiêc mo¿na j±
