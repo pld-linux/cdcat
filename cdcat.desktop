@@ -9,3 +9,4 @@ Terminal=false
 Type=Application
 Categories=Qt;Utility;Archiving;Database;
 Encoding=UTF-8
+# vi: encoding=utf-8
