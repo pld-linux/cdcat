@@ -1,12 +1,12 @@
 Summary:	Hypher's CdCatalog
 Summary(pl):	Katalog CDków Hypera
 Name:		cdcat
-Version:	0.96
-Release:	2
+Version:	0.97
+Release:	1
 License:	GPL
 Group:		Applications
 Source0:	http://cdcat.sourceforge.net/%{name}-%{version}.tar.bz2
-# Source0-md5:	f0e5efabc10706c9130bd42676516cd3
+# Source0-md5:	28d3b467301b14185d3173275cf9b854
 Source1:	cdcat.desktop
 URL:		http://cdcat.sourceforge.net/
 BuildRequires:	expat-devel >= 1.95.2
@@ -65,5 +65,6 @@ rm -fr $RPM_BUILD_ROOT
 %lang(de) %{_datadir}/cdcat/translations/cdcat_de.qm
 %lang(es) %{_datadir}/cdcat/translations/cdcat_es.qm
 %lang(hu) %{_datadir}/cdcat/translations/cdcat_hu.qm
+%lang(pl) %{_datadir}/cdcat/translations/cdcat_pl.qm
 %{_desktopdir}/*
 %{_pixmapsdir}/*
