@@ -11,6 +11,7 @@ Source1:	cdcat.desktop
 URL:		http://cdcat.sourceforge.net/
 BuildRequires:	expat-devel >= 1.95.2
 BuildRequires:	pcre-devel >= 1.1.4
+BuildRequires:	qmake
 BuildRequires:	qt-devel >= 2.0.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
