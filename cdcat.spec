@@ -1,13 +1,14 @@
-Summary:	Hypher's CdCatalog
+Summary:	Hyper's CdCatalog
 Summary(pl):	Katalog CDków Hypera
 Name:		cdcat
-Version:	0.97
-Release:	2
+Version:	1.01b
+Release:	1
 License:	GPL
 Group:		Applications
 Source0:	http://cdcat.sourceforge.net/%{name}-%{version}.tar.bz2
-# Source0-md5:	28d3b467301b14185d3173275cf9b854
-Source1:	cdcat.desktop
+# Source0-md5:	59b321ff3848b34cb6862fd2a408cb44
+Source1:	%{name}.desktop
+Patch0:		%{name}-gcc4.patch
 URL:		http://cdcat.sourceforge.net/
 BuildRequires:	expat-devel >= 1.95.2
 BuildRequires:	pcre-devel >= 1.1.4
@@ -19,8 +20,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 The cdcat is a graphical (Qt based) multiplatform (Linux/Windows)
 catalog program which scan your directoryes/drives you want and
 memoryze the filesystem /including the tags of MP3's/ and store it a
-small file.  The database is stored in a gzipped XML format, so you
-can hack it, or use it if necessary :-)
+small file. The database is stored in a gzipped XML format, so you can
+hack it, or use it if necessary :-)
 
 %description -l pl
 Cdcat jest graficznym (opartym o Qt) wieloplatformowym (Linux/Windows)
@@ -31,7 +32,7 @@ zmieniaæ, albo u¿ywaæ w miarê potrzeby.
 
 %prep
 %setup -q -n CdCat-%{version}
-
+%patch0 -p0
 echo 'CONFIG += thread' >> src/cdcat.pro
 
 %build
@@ -64,8 +65,15 @@ rm -fr $RPM_BUILD_ROOT
 %dir %{_datadir}/cdcat/translations
 %lang(cs) %{_datadir}/cdcat/translations/cdcat_cz.qm
 %lang(de) %{_datadir}/cdcat/translations/cdcat_de.qm
+%lang(el) %{_datadir}/cdcat/translations/cdcat_el.qm
 %lang(es) %{_datadir}/cdcat/translations/cdcat_es.qm
+%lang(fr) %{_datadir}/cdcat/translations/cdcat_fr.qm
 %lang(hu) %{_datadir}/cdcat/translations/cdcat_hu.qm
+%lang(id) %{_datadir}/cdcat/translations/cdcat_id.qm
+%lang(it) %{_datadir}/cdcat/translations/cdcat_it.qm
 %lang(pl) %{_datadir}/cdcat/translations/cdcat_pl.qm
+%lang(pt) %{_datadir}/cdcat/translations/cdcat_pt.qm
+%lang(sk) %{_datadir}/cdcat/translations/cdcat_sk.qm
+%lang(sr) %{_datadir}/cdcat/translations/cdcat_sr.qm
 %{_desktopdir}/*
 %{_pixmapsdir}/*
