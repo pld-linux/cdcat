@@ -75,5 +75,5 @@ rm -fr $RPM_BUILD_ROOT
 %lang(pt) %{_datadir}/cdcat/translations/cdcat_pt.qm
 %lang(sk) %{_datadir}/cdcat/translations/cdcat_sk.qm
 %lang(sr) %{_datadir}/cdcat/translations/cdcat_sr.qm
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
