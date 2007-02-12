@@ -1,5 +1,5 @@
 Summary:	Hyper's CdCatalog
-Summary(pl):	Katalog CDków Hypera
+Summary(pl.UTF-8):   Katalog CDkÃ³w Hypera
 Name:		cdcat
 Version:	1.01b
 Release:	1
@@ -23,12 +23,12 @@ memoryze the filesystem /including the tags of MP3's/ and store it a
 small file. The database is stored in a gzipped XML format, so you can
 hack it, or use it if necessary :-)
 
-%description -l pl
+%description -l pl.UTF-8
 Cdcat jest graficznym (opartym o Qt) wieloplatformowym (Linux/Windows)
-programem kataloguj±cym, który skanuje wybrane dyski i zapamiêtuje
-system plików (w³±czaj±c w to znaczniki MP3) i zapisuje to w ma³ym
-pliku. Baza danych jest w gzipowanym pliku XML, wiêc mo¿na j±
-zmieniaæ, albo u¿ywaæ w miarê potrzeby.
+programem katalogujÄ…cym, ktÃ³ry skanuje wybrane dyski i zapamiÄ™tuje
+system plikÃ³w (wÅ‚Ä…czajÄ…c w to znaczniki MP3) i zapisuje to w maÅ‚ym
+pliku. Baza danych jest w gzipowanym pliku XML, wiÄ™c moÅ¼na jÄ…
+zmieniaÄ‡, albo uÅ¼ywaÄ‡ w miarÄ™ potrzeby.
 
 %prep
 %setup -q -n CdCat-%{version}
