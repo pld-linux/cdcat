@@ -1,5 +1,5 @@
 Summary:	Hyper's CdCatalog
-Summary(pl.UTF-8):   Katalog CDków Hypera
+Summary(pl.UTF-8):	Katalog CDków Hypera
 Name:		cdcat
 Version:	1.01b
 Release:	1
