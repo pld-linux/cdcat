@@ -2,13 +2,14 @@ Summary:	Hyper's CdCatalog
 Summary(pl.UTF-8):	Katalog CDków Hypera
 Name:		cdcat
 Version:	1.01b
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications
 Source0:	http://cdcat.sourceforge.net/%{name}-%{version}.tar.bz2
 # Source0-md5:	59b321ff3848b34cb6862fd2a408cb44
 Source1:	%{name}.desktop
 Patch0:		%{name}-gcc4.patch
+Patch1:		%{name}-fstab.patch
 URL:		http://cdcat.sourceforge.net/
 BuildRequires:	expat-devel >= 1.95.2
 BuildRequires:	pcre-devel >= 1.1.4
@@ -33,6 +34,7 @@ zmieniać, albo używać w miarę potrzeby.
 %prep
 %setup -q -n CdCat-%{version}
 %patch0 -p0
+%patch1 -p0
 echo 'CONFIG += thread' >> src/cdcat.pro
 
 %build
