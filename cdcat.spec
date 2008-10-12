@@ -1,8 +1,9 @@
 Summary:	Hyper's CdCatalog
+Summary(hu.UTF-8):	Hyper CD Katalógusa
 Summary(pl.UTF-8):	Katalog CDków Hypera
 Name:		cdcat
 Version:	1.01b
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications
 Source0:	http://cdcat.sourceforge.net/%{name}-%{version}.tar.bz2
@@ -23,6 +24,14 @@ catalog program which scan your directoryes/drives you want and
 memoryze the filesystem /including the tags of MP3's/ and store it a
 small file. The database is stored in a gzipped XML format, so you can
 hack it, or use it if necessary :-)
+
+%description -l hu.UTF-8
+A cdcat egy grafikus (QT alapú) többplatformos (Linux/Windows/MacOS)
+katalógus program, mely beolvassa a megadott könyvtárakat és
+fájlszerkezeteket, és egy kis fájlban eltárolja, így késõbb könnyedén
+visszakereshetők a tárolt programok, zenék, filmek, stb. Az mp3-akhoz
+tartozó tag-ek is megjegyzésre kerülnek. Az adatbázis egy gzippelt XML
+formátumban tárolódik, így hordozható és könnyen hack-elhetõ, ha kell.
 
 %description -l pl.UTF-8
 Cdcat jest graficznym (opartym o Qt) wieloplatformowym (Linux/Windows)
