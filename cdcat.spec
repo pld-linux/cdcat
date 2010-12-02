@@ -1,15 +1,14 @@
 %define		devstat	Beta1
-%define		snap	20101109
 Summary:	Hyper's CdCatalog
 Summary(hu.UTF-8):	Hyper CD Katalógusa
 Summary(pl.UTF-8):	Katalog CDków Hypera
 Name:		cdcat
-Version:	1.1
+Version:	1.2
 Release:	1%{devstat}
 License:	GPL
-Group:		Applications
-Source0:	http://cdcat.sourceforge.net/CdCat-Unicode-1.1%{devstat}-qt4_%{snap}.tar.bz2
-# Source0-md5:	adf1294ce6a1507767b09542372fd990
+Group:		X11/Applications
+Source0:	http://cdcat.sourceforge.net/CdCat-Unicode-1.1%{devstat}-qt4.tar.gz
+# Source0-md5:	fe5925235bc7e8a2b6788419c0480c93
 Source1:	%{name}.desktop
 Patch0:		%{name}-gcc4.patch
 Patch1:		%{name}-fstab.patch
@@ -45,7 +44,7 @@ pliku. Baza danych jest w gzipowanym pliku XML, więc można ją
 zmieniać, albo używać w miarę potrzeby.
 
 %prep
-%setup -q -n CdCat-Unicode-1.1%{devstat}-qt4_%{snap}
+%setup -q -n CdCat-Unicode-1.1%{devstat}-qt4
 %{__sed} -i "s,lrelease,lrelease-qt4,g" unicode-src/cdcat.pro
 # %patch0 -p0
 # %patch1 -p0
