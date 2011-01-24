@@ -4,7 +4,7 @@ Summary(hu.UTF-8):	Hyper CD Katalógusa
 Summary(pl.UTF-8):	Katalog CDków Hypera
 Name:		cdcat
 Version:	1.1
-Release:	1%{devstat}
+Release:	2%{devstat}
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -76,8 +76,7 @@ rm -fr $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%docdir %{_docdir}/%{name}-%{version}
-%doc %{_docdir}/%{name}-%{version}/*
+%doc %{_docdir}/%{name}-%{version}
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/cdcat
 %dir %{_datadir}/cdcat/translations
