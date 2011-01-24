@@ -13,12 +13,13 @@ Source1:	%{name}.desktop
 Patch0:		%{name}-gcc4.patch
 Patch1:		%{name}-fstab.patch
 URL:		http://cdcat.sourceforge.net/
-BuildRequires:	expat-devel >= 1.95.2
-BuildRequires:	pcre-devel >= 1.1.4
-BuildRequires:	qt4-qmake
-BuildRequires:	qt4-linguist
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtGui-devel
+BuildRequires:	expat-devel >= 1.95.2
+BuildRequires:	pcre-devel >= 1.1.4
+BuildRequires:	qt4-build
+BuildRequires:	qt4-linguist
+BuildRequires:	qt4-qmake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
