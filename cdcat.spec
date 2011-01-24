@@ -1,14 +1,15 @@
-%define		devstat	Beta1
+%define		devstat	beta2
 Summary:	Hyper's CdCatalog
 Summary(hu.UTF-8):	Hyper CD Katalógusa
 Summary(pl.UTF-8):	Katalog CDków Hypera
 Name:		cdcat
-Version:	1.2
+Version:	1.1
 Release:	1%{devstat}
+Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://cdcat.sourceforge.net/CdCat-Unicode-1.1%{devstat}-qt4.tar.gz
-# Source0-md5:	fe5925235bc7e8a2b6788419c0480c93
+Source0:	http://downloads.sourceforge.net/project/cdcat/cdcat/cdcat-1.1beta2/%{name}-%{version}%{devstat}.tar.bz2
+# Source0-md5:	1d26652cec7b844e0da670a92a181af4
 Source1:	%{name}.desktop
 Patch0:		%{name}-gcc4.patch
 Patch1:		%{name}-fstab.patch
@@ -45,37 +46,38 @@ pliku. Baza danych jest w gzipowanym pliku XML, więc można ją
 zmieniać, albo używać w miarę potrzeby.
 
 %prep
-%setup -q -n CdCat-Unicode-1.1%{devstat}-qt4
-%{__sed} -i "s,lrelease,lrelease-qt4,g" unicode-src/cdcat.pro
-# %patch0 -p0
-# %patch1 -p0
-# echo 'CONFIG += thread' >> src/cdcat.pro
+%setup -q -n %{name}-%{version}%{devstat}
+%{__sed} -i "s,lrelease,lrelease-qt4,g ;\
+	s,/local,,g ;\
+	s,\(distfiles.path =\).*,\1 %{_docdir}/%{name}-%{version}," \
+	src/cdcat.pro
 
 %build
-cd unicode-src
+cd src
 export QTDIR=%{_prefix}
 qmake-qt4 \
 	QMAKE_CXX="%{__cxx}" \
 	QMAKE_LINK="%{__cxx}" \
-	QMAKE_CXXFLAGS_RELEASE="%{rpmcflags} -fno-exceptions -fno-rtti"
+	QMAKE_CXXFLAGS_RELEASE="%{rpmcflags} -fno-exceptions -fno-rtti" \
+	cdcat.pro
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/cdcat/translations
+cd src
+%{__make} install INSTALL_ROOT=$RPM_BUILD_ROOT
 
-install -D unicode-src/cdcat $RPM_BUILD_ROOT%{_bindir}/cdcat
-install unicode-src/lang/cdcat_*.qm $RPM_BUILD_ROOT%{_datadir}/cdcat/translations
+install -D ../cdcat.png $RPM_BUILD_ROOT%{_pixmapsdir}/cdcat.png
 install -D %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/cdcat.desktop
-install -D cdcat.png $RPM_BUILD_ROOT%{_pixmapsdir}/cdcat.png
 
 %clean
 rm -fr $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Authors README README_IMPORT TRANSLATORS_README TODO VERSION
+%docdir %{_docdir}/%{name}-%{version}
+%doc %{_docdir}/%{name}-%{version}/*
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/cdcat
 %dir %{_datadir}/cdcat/translations
