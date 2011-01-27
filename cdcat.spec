@@ -16,6 +16,7 @@ Patch1:		%{name}-fstab.patch
 URL:		http://cdcat.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtGui-devel
+BuildRequires:	QtXml-devel
 BuildRequires:	expat-devel >= 1.95.2
 BuildRequires:	pcre-devel >= 1.1.4
 BuildRequires:	qt4-build
