@@ -1,4 +1,4 @@
-%define		devstat	beta2
+%define		devstat	beta3
 Summary:	Hyper's CdCatalog
 Summary(hu.UTF-8):	Hyper CD Katalógusa
 Summary(pl.UTF-8):	Katalog CDków Hypera
@@ -8,8 +8,8 @@ Release:	2%{devstat}
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://downloads.sourceforge.net/project/cdcat/cdcat/cdcat-1.1beta2/%{name}-%{version}%{devstat}.tar.bz2
-# Source0-md5:	1d26652cec7b844e0da670a92a181af4
+Source0:	http://downloads.sourceforge.net/project/cdcat/cdcat/cdcat-1.1%{devstat}/%{name}-%{version}%{devstat}.tar.bz2
+# Source0-md5:	0d5eb71d26a898f5db81ef1a4b3a6f24
 Source1:	%{name}.desktop
 Patch0:		%{name}-gcc4.patch
 Patch1:		%{name}-fstab.patch
@@ -49,7 +49,7 @@ zmieniać, albo używać w miarę potrzeby.
 %prep
 %setup -q -n %{name}-%{version}%{devstat}
 %{__sed} -i "s,lrelease,lrelease-qt4,g ;\
-	s,/local,,g ;\
+	s,/usr/local,/usr,g ;\
 	s,\(distfiles.path =\).*,\1 %{_docdir}/%{name}-%{version}," \
 	src/cdcat.pro
 
@@ -64,6 +64,9 @@ qmake-qt4 \
 
 %{__make}
 
+cd lang
+lrelease-qt4 *.ts
+
 %install
 rm -rf $RPM_BUILD_ROOT
 cd src
@@ -71,6 +74,8 @@ cd src
 
 install -D ../cdcat.png $RPM_BUILD_ROOT%{_pixmapsdir}/cdcat.png
 install -D %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/cdcat.desktop
+install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/translations
+install lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/translations
 
 %clean
 rm -fr $RPM_BUILD_ROOT
