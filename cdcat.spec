@@ -1,4 +1,4 @@
-%define		devstat	beta3
+%define		devstat	beta4
 Summary:	Hyper's CdCatalog
 Summary(hu.UTF-8):	Hyper CD Katalógusa
 Summary(pl.UTF-8):	Katalog CDków Hypera
@@ -9,7 +9,7 @@ Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/project/cdcat/cdcat/cdcat-1.1%{devstat}/%{name}-%{version}%{devstat}.tar.bz2
-# Source0-md5:	0d5eb71d26a898f5db81ef1a4b3a6f24
+# Source0-md5:	22229673eadce6639781f14a7653995b
 Source1:	%{name}.desktop
 Patch0:		%{name}-gcc4.patch
 Patch1:		%{name}-fstab.patch
