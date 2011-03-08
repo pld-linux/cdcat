@@ -1,18 +1,16 @@
-%define		devstat	beta4
 Summary:	Hyper's CdCatalog
 Summary(hu.UTF-8):	Hyper CD Katalógusa
 Summary(pl.UTF-8):	Katalog CDków Hypera
 Name:		cdcat
-Version:	1.1
-Release:	2%{devstat}
+Version:	1.2
+Release:	1
 Epoch:		1
-License:	GPL
+License:	GPL v2
 Group:		X11/Applications
-Source0:	http://downloads.sourceforge.net/project/cdcat/cdcat/cdcat-1.1%{devstat}/%{name}-%{version}%{devstat}.tar.bz2
-# Source0-md5:	22229673eadce6639781f14a7653995b
+Source0:	http://downloads.sourceforge.net/project/cdcat/cdcat/cdcat-%{version}/%{name}-%{version}.tar.bz2
+# Source0-md5:	363cf94e8895c8ce8c55c6ac613b6f11
 Source1:	%{name}.desktop
-Patch0:		%{name}-gcc4.patch
-Patch1:		%{name}-fstab.patch
+Patch0:		docfiles-install.patch
 URL:		http://cdcat.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtGui-devel
@@ -47,7 +45,8 @@ pliku. Baza danych jest w gzipowanym pliku XML, więc można ją
 zmieniać, albo używać w miarę potrzeby.
 
 %prep
-%setup -q -n %{name}-%{version}%{devstat}
+%setup -q -n %{name}-%{version}
+%patch0 -p1
 %{__sed} -i "s,lrelease,lrelease-qt4,g ;\
 	s,/usr/local,/usr,g ;\
 	s,\(distfiles.path =\).*,\1 %{_docdir}/%{name}-%{version}," \
@@ -76,6 +75,8 @@ install -D ../cdcat.png $RPM_BUILD_ROOT%{_pixmapsdir}/cdcat.png
 install -D %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/cdcat.desktop
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/translations
 install lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/translations
+
+%{__rm} -f $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/COPYING
 
 %clean
 rm -rf $RPM_BUILD_ROOT
