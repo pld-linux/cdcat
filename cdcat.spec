@@ -10,7 +10,6 @@ Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/project/cdcat/cdcat/cdcat-%{version}/%{name}-%{version}.tar.bz2
 # Source0-md5:	363cf94e8895c8ce8c55c6ac613b6f11
 Source1:	%{name}.desktop
-Patch0:		docfiles-install.patch
 URL:		http://cdcat.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtGui-devel
@@ -46,11 +45,11 @@ zmieniać, albo używać w miarę potrzeby.
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch0 -p1
 %{__sed} -i "s,lrelease,lrelease-qt4,g ;\
 	s,/usr/local,/usr,g ;\
 	s,\(distfiles.path =\).*,\1 %{_docdir}/%{name}-%{version}," \
 	src/cdcat.pro
+%{__sed} -i "s@\.\./COPYING@../README_IMPORT ../README_IMPORT.DE ../README_IMPORT.HU@" src/cdcat.pro
 
 %build
 cd src
