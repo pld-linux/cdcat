@@ -1,0 +1,12 @@
+--- cdcat-1.2-orig/src/cdcat.pro	2011-03-08 14:23:05.500182670 +0100
++++ cdcat-1.2/src/cdcat.pro	2011-03-08 14:24:03.546161383 +0100
+@@ -93,7 +93,8 @@
+ 
+ 
+ unix:distfiles.files +=   ../README_CSV_IMPORT ../Authors ../README ../ChangeLog \
+-                          ../COPYING ../TRANSLATORS_README ../cdcat.png 
++                          ../README_IMPORT ../README_IMPORT.DE ../README_IMPORT.HU ../TRANSLATORS_README \
++			  ../cdcat.png 
+ unix:distfiles.path =     /usr/local/share/cdcat
+ unix:target.path +=       /usr/local/bin
+ unix:translations.path += /usr/local/share/cdcat/translations
