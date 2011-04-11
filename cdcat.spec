@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	Hyper CD Katalógusa
 Summary(pl.UTF-8):	Katalog CDków Hypera
 Name:		cdcat
 Version:	1.2
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL v2
 Group:		X11/Applications
