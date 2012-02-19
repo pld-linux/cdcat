@@ -2,13 +2,13 @@ Summary:	Hyper's CdCatalog
 Summary(hu.UTF-8):	Hyper CD Katalógusa
 Summary(pl.UTF-8):	Katalog CDków Hypera
 Name:		cdcat
-Version:	1.5
+Version:	1.7
 Release:	0.1
 Epoch:		1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/project/cdcat/cdcat/cdcat-%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	0ccd6b61d0c28bbfa5f3898e9bd17960
+# Source0-md5:	9ae7a9141f202783f5e0a3fb1b9ec912
 Source1:	%{name}.desktop
 URL:		http://cdcat.sourceforge.net/
 BuildRequires:	Qt3Support-devel
