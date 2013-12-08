@@ -1,0 +1,43 @@
+--- cdcat-2.3.1/src/newdbdialog.cpp~	2013-08-08 09:25:39.000000000 +0200
++++ cdcat-2.3.1/src/newdbdialog.cpp	2013-12-08 16:56:36.138613733 +0100
+@@ -27,7 +27,7 @@
+ #include <string.h>
+ 
+ #ifdef CATALOG_ENCRYPTION
+-#include <crypto++/blowfish.h>
++#include <cryptopp/blowfish.h>
+ #endif
+ 
+ #include "icons.h"
+--- cdcat-2.3.1/src/wdbfile.h~	2013-08-26 09:37:10.000000000 +0200
++++ cdcat-2.3.1/src/wdbfile.h	2013-12-08 16:56:59.665280229 +0100
+@@ -18,12 +18,12 @@
+ 
+ #ifdef CATALOG_ENCRYPTION
+ // libcrypto++
+-#include <crypto++/osrng.h>
+-#include <crypto++/secblock.h>
+-#include <crypto++/blowfish.h>
+-#include <crypto++/filters.h>
+-#include <crypto++/modes.h>
+-#include <crypto++/hex.h>
++#include <cryptopp/osrng.h>
++#include <cryptopp/secblock.h>
++#include <cryptopp/blowfish.h>
++#include <cryptopp/filters.h>
++#include <cryptopp/modes.h>
++#include <cryptopp/hex.h>
+ #endif
+ 
+ #ifdef CATALOG_ENCRYPTION
+--- cdcat-2.3.1/src/cdcat.pro~	2013-09-29 10:44:34.000000000 +0200
++++ cdcat-2.3.1/src/cdcat.pro	2013-12-08 17:13:09.755273206 +0100
+@@ -226,7 +226,7 @@
+ 	
+ 	###### encryption
+ 	DEFINES += CATALOG_ENCRYPTION
+-	LIBS+= -lcrypto++ -lpthread
++	LIBS+= -lcryptopp -lpthread
+ 	###### end encryption
+ 
+ 	LIBS       += -lz -lbz2 -ldl

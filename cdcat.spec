@@ -2,20 +2,24 @@ Summary:	Hyper's CdCatalog
 Summary(hu.UTF-8):	Hyper CD Katalógusa
 Summary(pl.UTF-8):	Katalog CDków Hypera
 Name:		cdcat
-Version:	1.7
-Release:	0.1
+Version:	2.3.1
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/project/cdcat/cdcat/cdcat-%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	9ae7a9141f202783f5e0a3fb1b9ec912
+# Source0-md5:	b7b4ea3e213620c1126c64125b93e63a
 Source1:	%{name}.desktop
+Patch0:		cryptopp.patch
 URL:		http://cdcat.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtGui-devel
 BuildRequires:	QtXml-devel
 BuildRequires:	expat-devel >= 1.95.2
+BuildRequires:	cryptopp-devel
 BuildRequires:	libmediainfo-devel
+BuildRequires:	libtar-devel
+BuildRequires:	lib7zip-devel >= 1.6.5-2
 BuildRequires:	pcre-devel >= 1.1.4
 BuildRequires:	qt4-build
 BuildRequires:	qt4-linguist
@@ -46,6 +50,7 @@ zmieniać, albo używać w miarę potrzeby.
 
 %prep
 %setup -q -n %{name}-%{version}
+%patch0 -p1
 %{__sed} -i "s,lrelease,lrelease-qt4,g ;\
 	s,/usr/local,/usr,g ;\
 	s,\(distfiles.path =\).*,\1 %{_docdir}/%{name}-%{version}," \
@@ -58,7 +63,7 @@ export QTDIR=%{_prefix}
 qmake-qt4 \
 	QMAKE_CXX="%{__cxx}" \
 	QMAKE_LINK="%{__cxx}" \
-	QMAKE_CXXFLAGS_RELEASE="%{rpmcflags} -fno-exceptions -fno-rtti" \
+	QMAKE_CXXFLAGS_RELEASE="%{rpmcflags}" \
 	cdcat.pro
 
 %{__make}
@@ -91,13 +96,14 @@ rm -rf $RPM_BUILD_ROOT
 %lang(de) %{_datadir}/cdcat/translations/cdcat_de.qm
 %lang(el) %{_datadir}/cdcat/translations/cdcat_el.qm
 %lang(es) %{_datadir}/cdcat/translations/cdcat_es.qm
-# %lang(fr) %{_datadir}/cdcat/translations/cdcat_fr.qm
+%lang(fr) %{_datadir}/cdcat/translations/cdcat_fr.qm
 %lang(hu) %{_datadir}/cdcat/translations/cdcat_hu.qm
 %lang(id) %{_datadir}/cdcat/translations/cdcat_id.qm
-# %lang(it) %{_datadir}/cdcat/translations/cdcat_it.qm
+%lang(it) %{_datadir}/cdcat/translations/cdcat_it.qm
 %lang(pl) %{_datadir}/cdcat/translations/cdcat_pl.qm
 %lang(pt) %{_datadir}/cdcat/translations/cdcat_pt.qm
+%lang(ru) %{_datadir}/cdcat/translations/cdcat_ru.qm
 %lang(sk) %{_datadir}/cdcat/translations/cdcat_sk.qm
-# %lang(sr) %{_datadir}/cdcat/translations/cdcat_sr.qm
+%lang(sr) %{_datadir}/cdcat/translations/cdcat_sr.qm
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
