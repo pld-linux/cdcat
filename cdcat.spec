@@ -3,11 +3,11 @@ Summary(hu.UTF-8):	Hyper CD Katalógusa
 Summary(pl.UTF-8):	Katalog CDków Hypera
 Name:		cdcat
 Version:	2.3.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://downloads.sourceforge.net/project/cdcat/cdcat/cdcat-%{version}/%{name}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/cdcat/cdcat-%{version}/%{name}-%{version}.tar.bz2
 # Source0-md5:	b7b4ea3e213620c1126c64125b93e63a
 Source1:	%{name}.desktop
 Patch0:		cryptopp.patch
@@ -89,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc %{_docdir}/%{name}-%{version}
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/cdcat
 %dir %{_datadir}/cdcat
 %dir %{_datadir}/cdcat/translations
 %lang(cs) %{_datadir}/cdcat/translations/cdcat_cz.qm
@@ -105,5 +105,5 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ru) %{_datadir}/cdcat/translations/cdcat_ru.qm
 %lang(sk) %{_datadir}/cdcat/translations/cdcat_sk.qm
 %lang(sr) %{_datadir}/cdcat/translations/cdcat_sr.qm
-%{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
+%{_desktopdir}/cdcat.desktop
+%{_pixmapsdir}/cdcat.png
