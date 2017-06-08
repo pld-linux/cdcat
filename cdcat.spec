@@ -7,7 +7,7 @@ Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://downloads.sourceforge.net/cdcat/cdcat-%{version}/%{name}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/cdcat/%{name}-%{version}.tar.bz2
 # Source0-md5:	b7b4ea3e213620c1126c64125b93e63a
 Source1:	%{name}.desktop
 Patch0:		cryptopp.patch
@@ -28,10 +28,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The cdcat is a graphical (Qt based) multiplatform (Linux/Windows)
-catalog program which scan your directoryes/drives you want and
-memoryze the filesystem /including the tags of MP3's/ and store it a
-small file. The database is stored in a gzipped XML format, so you can
-hack it, or use it if necessary :-)
+catalog program which scans your directories/drives you want and
+memorizes the filesystem (including the tags of MP3s) and stores it in
+a small file. The database is stored in a gzipped XML format, so you
+can hack it, or use it if necessary :-)
 
 %description -l hu.UTF-8
 A cdcat egy grafikus (QT alapú) többplatformos (Linux/Windows/MacOS)
@@ -43,9 +43,9 @@ formátumban tárolódik, így hordozható és könnyen hack-elhetõ, ha kell.
 
 %description -l pl.UTF-8
 Cdcat jest graficznym (opartym o Qt) wieloplatformowym (Linux/Windows)
-programem katalogującym, który skanuje wybrane dyski i zapamiętuje
-system plików (włączając w to znaczniki MP3) i zapisuje to w małym
-pliku. Baza danych jest w gzipowanym pliku XML, więc można ją
+programem katalogującym, który skanuje wybrane katalogi/urządzenia,
+zapamiętuje system plików (wraz ze znacznikami MP3) i zapisuje to w
+małym pliku. Baza danych jest w gzipowanym pliku XML, więc można ją
 zmieniać, albo używać w miarę potrzeby.
 
 %prep
