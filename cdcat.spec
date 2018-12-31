@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	Hyper CD Katalógusa
 Summary(pl.UTF-8):	Katalog CDków Hypera
 Name:		cdcat
 Version:	2.3.1
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL v2
 Group:		X11/Applications
@@ -12,18 +12,18 @@ Source0:	http://downloads.sourceforge.net/cdcat/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		cryptopp.patch
 URL:		http://cdcat.sourceforge.net/
-BuildRequires:	Qt3Support-devel
-BuildRequires:	QtGui-devel
-BuildRequires:	QtXml-devel
+BuildRequires:	Qt3Support-devel >= 4
+BuildRequires:	QtGui-devel >= 4
+BuildRequires:	QtXml-devel >= 4
 BuildRequires:	expat-devel >= 1.95.2
 BuildRequires:	cryptopp-devel
 BuildRequires:	libmediainfo-devel
 BuildRequires:	libtar-devel
 BuildRequires:	lib7zip-devel >= 1.6.5-2
 BuildRequires:	pcre-devel >= 1.1.4
-BuildRequires:	qt4-build
-BuildRequires:	qt4-linguist
-BuildRequires:	qt4-qmake
+BuildRequires:	qt4-build >= 4
+BuildRequires:	qt4-linguist >= 4
+BuildRequires:	qt4-qmake >= 4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

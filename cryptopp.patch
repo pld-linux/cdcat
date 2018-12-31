@@ -30,6 +30,15 @@
  #endif
  
  #ifdef CATALOG_ENCRYPTION
+@@ -31,7 +31,7 @@
+ 
+ static CryptoPP::SecByteBlock crypto_key(CryptoPP::Blowfish::BLOCKSIZE);
+ 
+-static byte iv[CryptoPP::Blowfish::BLOCKSIZE];
++static CryptoPP::byte iv[CryptoPP::Blowfish::BLOCKSIZE];
+ 
+ 
+ int generate_cryptokey(QString password);
 --- cdcat-2.3.1/src/cdcat.pro~	2013-09-29 10:44:34.000000000 +0200
 +++ cdcat-2.3.1/src/cdcat.pro	2013-12-08 17:13:09.755273206 +0100
 @@ -226,7 +226,7 @@
