@@ -50,7 +50,7 @@ zmieniać, albo używać w miarę potrzeby.
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 %{__sed} -i "s,lrelease,lrelease-qt4,g ;\
 	s,/usr/local,/usr,g ;\
 	s,\(distfiles.path =\).*,\1 %{_docdir}/%{name}-%{version}," \
